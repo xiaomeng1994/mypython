@@ -6,6 +6,7 @@ import json
 import codecs
 
 # excel转json小工具
+# 需先安装xlrd模块
 
 # xlsx 路径
 path = "C:\\Users\\1\\Desktop\\tmp\\c3.xlsx"
