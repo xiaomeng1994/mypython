@@ -23,10 +23,12 @@ def readExcel(file_path,start_row):
             values = []
             for cell in row:
                 cell_value = cell.value
-                if '0.00%' == cell.number_format and (type(cell_value) == int or type(cell_value) == float):
-                    cell_value = round(cell.value*100, 2)
+                if str(cell_value).strip() == '':
+                    cell_value = None
+                elif '0.00%' == cell.number_format and (type(cell_value) == int or type(cell_value) == float):
+                    cell_value = round(cell_value*100, 2)
                 elif type(cell_value) == float:
-                    cell_value = round(cell.value, 2)
+                    cell_value = round(cell_value, 2)
                 values.append(cell_value)
             data_list.append(tuple(values))
     # 删除前面不要的数据
