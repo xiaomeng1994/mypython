@@ -30,7 +30,9 @@ def readExcel(file_path,start_row):
                 elif type(cell_value) == float:
                     cell_value = round(cell_value, 2)
                 values.append(cell_value)
-            data_list.append(tuple(values))
+            # 去掉全部为空值的行
+            if values.count(None) != values.__len__():
+                data_list.append(tuple(values))
     # 删除前面不要的数据
     for i in range(start_row):
         if data_list.__len__() > 0:
